@@ -70,31 +70,31 @@ class ProfileWindow extends Window {
 			"content" => []
 		];
 
-		$this->data["content"][] = ["type" => "label", "text" => "Name: $name2"];
+		$this->data["content"][] = ["type" => "label", "text" => TextFormat::GOLD."Name: ".TextFormat::WHITE."$name2"];
 
 		if($this->pl->config->get("rank") == 1){
-		$this->data["content"][] = ["type" => "label", "text" => "Rank: $rank"];
+		$this->data["content"][] = ["type" => "label", "text" => TextFormat::GOLD."Rank: ".TextFormat::WHITE."$rank"];
 		}
 
 		if($this->pl->config->get("money") == 1){
-		$this->data["content"][] = ["type" => "label", "text" => "Money: $money"];
+		$this->data["content"][] = ["type" => "label", "text" => TextFormat::GOLD."Money: ".TextFormat::WHITE."$money"];
 		}
 
 		if($this->pl->config->get("faction") == 1){
-		$this->data["content"][] = ["type" => "label", "text" => "Faction: $fac"];
+		$this->data["content"][] = ["type" => "label", "text" => TextFormat::GOLD."Faction: ".TextFormat::WHITE."$fac"];
 		}
 
 		if($this->pl->config->get("first-played") == 1){
-		$this->data["content"][] = ["type" => "label", "text" => "First Played: $date2 at $time2"];
+		$this->data["content"][] = ["type" => "label", "text" => TextFormat::GOLD."First Played: ".TextFormat::WHITE."$date2 at $time2"];
 		}
 
 		if($this->pl->config->get("last-seen") == 1){
 			if($flag == true){
-			$this->data["content"][] = ["type" => "label", "text" => "Status: $status"];
+			$this->data["content"][] = ["type" => "label", "text" => TextFormat::GOLD."Status: ".TextFormat::WHITE."$status"];
 			}
 			if($flag == false){
-			$this->data["content"][] = ["type" => "label", "text" => "Status: $status"];
-			$this->data["content"][] = ["type" => "label", "text" => "Last seen: $date at $time"];	
+			$this->data["content"][] = ["type" => "label", "text" => TextFormat::GOLD."Status: ".TextFormat::WHITE."$status"];
+			$this->data["content"][] = ["type" => "label", "text" => TextFormat::GOLD."Last seen: ".TextFormat::WHITE."$date at $time"];	
 			}
 		}
 
