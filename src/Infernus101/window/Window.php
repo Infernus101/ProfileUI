@@ -15,7 +15,7 @@ abstract class Window {
 	protected $args = null;
 	protected $data = [];
 
-	public function __construct(Main $pl, Player $player, Player $args) {
+	public function __construct(Main $pl, Player $player, $args) {
 		$this->pl = $pl;
 		$this->player = $player;
 		$this->args = $args;
@@ -38,7 +38,7 @@ abstract class Window {
 		return $this->args;
 	}
 
-	public function navigate(int $menu, Player $player, Handler $handler, Player $args): void {
+	public function navigate(int $menu, Player $player, Handler $handler, $args): void {
 		$packet = new ModalFormRequestPacket();
 		$packet->formId = $handler->getWindowIdFor($menu);
 		$packet->formData = $handler->getWindowJson($menu, $this->pl, $player, $args);
