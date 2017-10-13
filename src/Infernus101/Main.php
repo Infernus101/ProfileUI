@@ -42,9 +42,9 @@ class Main extends PluginBase implements Listener {
 				  return false;
 			  }
 				$noob = $this->getServer()->getOfflinePlayer($args[0]);
-				if(!$noob instanceof OfflinePlayer and !$noob instanceof Player){
-				$sender->sendMessage(TextFormat::RED."> Player not found!");
-				return false;
+				if(!is_numeric($noob->getFirstPlayed())){
+					$sender->sendMessage(TextFormat::RED."Error > Player not found");
+					return false;
 				}
 				$handler = new Handler();
 				$packet = new ModalFormRequestPacket();
