@@ -36,7 +36,7 @@ class ProfileWindow extends Window {
 		}
 
 		if($this->pl->config->get("faction") == 1){
-			$f = $manager->getPlugin("Sell");
+			$f = $manager->getPlugin("FactionsPro");
 			if($f->isInFaction($name)){
 			$fac = $f->getPlayerFaction($name);
 			}
