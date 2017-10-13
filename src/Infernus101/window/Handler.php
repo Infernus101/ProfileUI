@@ -15,11 +15,11 @@ class Handler {
 		ProfileWindow::class,
 	];
 
-	public function getWindowJson(int $windowId, Main $loader, Player $player, Player $args): string {
+	public function getWindowJson(int $windowId, Main $loader, Player $player, $args): string {
 		return $this->getWindow($windowId, $loader, $player, $args)->getJson();
 	}
 
-	public function getWindow(int $windowId, Main $loader, Player $player, Player $args): Window {
+	public function getWindow(int $windowId, Main $loader, Player $player, $args): Window {
 		if(!isset($this->types[$windowId])) {
 			throw new \OutOfBoundsException("Tried to get window of non-existing window ID.");
 		}
