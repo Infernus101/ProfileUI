@@ -1,5 +1,5 @@
 # ProfileUI
-Get any player's profile on a Modal Form! MCPE V1.2! PMMP support only!
+Get any player's profile on a Modal Form! MCPE v1.2! PMMP support only!
 
 ![](https://poggit.pmmp.io/ci.badge/Infernus101/ProfileUI/ProfileUI)
 
