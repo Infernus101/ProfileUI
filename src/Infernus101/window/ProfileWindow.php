@@ -12,13 +12,69 @@ use pocketmine\Player;
 
 class ProfileWindow extends Window {
 	public function process(): void {
+		$flag = true;
 		$name = $this->args->getName();
+		$manager = $this->pl->getServer()->getPluginManager();
+		if($this->pl->config->get("rank") == 1){
+		$pp = $manager->getPlugin("PurePerms");
+		$rank = $pp->getUserDataMgr()->getGroup($this->args)->getName();
+		}
+		if($this->pl->config->get("money") == 1){
+		$eco = $manager->getPlugin("EconomyAPI");
+		$money = $eco->myMoney($name);
+		}
+		if($this->pl->config->get("faction") == 1){
+		$f = $manager->getPlugin("FactionsPro");
+		if($f->isInFaction($name)){
+		$fac = $f->getPlayerFaction($name);
+		}
+		else{
+		$fac = '-';	
+		}
+		}
+		if($this->pl->config->get("last-seen") == 1){
+        if($this->args instanceof Player){
+			$status = 'Online';
+			$flag = true;
+		}
+		else{
+			$status = 'Offline';
+			$date = date("l, F j, Y", ($last = $this->args->getLastPlayed() / 1000));
+			$time = date("h:ia", $last);
+			$flag = false;
+		}
+		}
+		if($this->pl->config->get("first-played") == 1){
+			$date2 = date("l, F j, Y", ($first = $this->args->getFirstPlayed() / 1000));
+			$time2 = date("h:ia", $first);
+		}
 		$this->data = [
 			"type" => "custom_form",
-			"title" => "§e$name"."'s Profile",
+			"title" => TextFormat::AQUA."$name"."'s Profile",
 			"content" => []
 		];
 		$this->data["content"][] = ["type" => "label", "text" => "Name: $name"];
+		if($this->pl->config->get("rank") == 1){
+		$this->data["content"][] = ["type" => "label", "text" => "Rank: $rank"];
+		}
+		if($this->pl->config->get("money") == 1){
+		$this->data["content"][] = ["type" => "label", "text" => "Money: $money"];
+		}
+		if($this->pl->config->get("faction") == 1){
+		$this->data["content"][] = ["type" => "label", "text" => "Faction: $fac"];
+		}
+		if($this->pl->config->get("first-played") == 1){
+		$this->data["content"][] = ["type" => "label", "text" => "First Played: $date2 at $time2"];
+		}
+		if($this->pl->config->get("last-seen") == 1){
+		if($flag == true){
+		$this->data["content"][] = ["type" => "label", "text" => "Status: $status"];
+		}
+		if($flag == false){
+		$this->data["content"][] = ["type" => "label", "text" => "Status: $status"];
+		$this->data["content"][] = ["type" => "label", "text" => "Last seen: $date at $time"];	
+		}
+		}
 	}
 	private function select($index){
 		$handler = new Handler();
