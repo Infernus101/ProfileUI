@@ -10,4 +10,11 @@ faction: 0
 first-played: 1
 # show player's last seen? 0 to disable
 last-seen: 1
+###### RECORDS ######
+# keep mining/blocks broken record of players
+mining-record: 1
+# keep kill record of players
+kill-record: 1
+# keep death record of players
+death-record: 1
 ...
