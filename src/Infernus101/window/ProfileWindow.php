@@ -126,13 +126,8 @@ class ProfileWindow extends Window {
 		}
 
 	}
-	private function select($index){
-		$handler = new Handler();
-	}
 
 	public function handle(ModalFormResponsePacket $packet): bool {
-		$index = (int) $packet->formData + 1;
-		$this->select($index);
 		return true;
 	}
 }
