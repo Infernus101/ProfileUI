@@ -19,6 +19,7 @@ Get any player's profile on a Modal Form! MCPE v1.2! PMMP support only!
 - Shows player blocks broken
 - Shows player total kills
 - Shows player total deaths
+- Shows player K/D ratio
 - Shows player Faction if there
 - Shows player online/offline status
 - Shows player first joined date with time
