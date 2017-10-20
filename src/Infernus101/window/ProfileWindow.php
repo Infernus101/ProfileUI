@@ -77,6 +77,15 @@ class ProfileWindow extends Window {
 			$stat = $this->pl->getStat($this->args);
 			$deaths = $stat["deaths"];
 		}
+		
+		if($this->pl->config->get("kdr") == 1){
+			if($kills > 0 and $deaths > 0){
+			$kdr = round($kills/$deaths);
+			}
+			else{
+			$kdr = 'N/A';
+			}
+		}
 
 		$name2 = ucfirst($name);
 		$this->data = [
@@ -109,6 +118,10 @@ class ProfileWindow extends Window {
 		
 		if($this->pl->config->get("death-record") == 1){
 		$this->data["content"][] = ["type" => "label", "text" => TextFormat::GOLD."Deaths: ".TextFormat::WHITE."$deaths"];
+		}
+		
+		if($this->pl->config->get("kdr") == 1){
+		$this->data["content"][] = ["type" => "label", "text" => TextFormat::GOLD."Kills/Deaths: ".TextFormat::WHITE."$kdr"];
 		}
 
 		if($this->pl->config->get("first-played") == 1){
