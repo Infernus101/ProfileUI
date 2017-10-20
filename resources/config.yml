@@ -17,4 +17,6 @@ mining-record: 1
 kill-record: 1
 # keep death record of players
 death-record: 1
+# show kill/death ratio
+kdr: 1
 ...
