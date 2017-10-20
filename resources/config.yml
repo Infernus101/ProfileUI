@@ -12,11 +12,9 @@ first-played: 1
 last-seen: 1
 ###### RECORDS ######
 # keep mining/blocks broken record of players
-mining-record: 1
-# keep kill record of players
-kill-record: 1
-# keep death record of players
-death-record: 1
+mining-record: 0
+# keep pvp-stats/kills/deaths record of players
+pvp-record: 0
 # show kill/death ratio
-kdr: 1
+kdr: 0
 ...
