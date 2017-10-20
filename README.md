@@ -2,7 +2,7 @@
 ## (No Plugin library or Virion required! Easy as pie!)
 Get any player's profile on a Modal Form! MCPE v1.2! PMMP support only!
 
-![](https://poggit.pmmp.io/ci.badge/Infernus101/ProfileUI/ProfileUI)
+[![Poggit-CI](https://poggit.pmmp.io/ci.shield/Infernus101/ProfileUI/ProfileUI)](https://poggit.pmmp.io/ci/Infernus101/ProfileUI/ProfileUI)
 
 [Get the latest ProfileUI artifacts (PHAR file) here](https://poggit.pmmp.io/ci/Infernus101/ProfileUI/ProfileUI)
 
