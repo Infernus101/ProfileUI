@@ -68,13 +68,9 @@ class ProfileWindow extends Window {
 			$mined = $stat["mining"];
 		}
 		
-		if($this->pl->config->get("kill-record") == 1){
+		if($this->pl->config->get("pvp-record") == 1){
 			$stat = $this->pl->getStat($this->args);
 			$kills = $stat["kills"];
-		}
-		
-		if($this->pl->config->get("death-record") == 1){
-			$stat = $this->pl->getStat($this->args);
 			$deaths = $stat["deaths"];
 		}
 		
@@ -112,11 +108,8 @@ class ProfileWindow extends Window {
 		$this->data["content"][] = ["type" => "label", "text" => TextFormat::GOLD."Blocks broken: ".TextFormat::WHITE."$mined"];
 		}
 		
-		if($this->pl->config->get("kill-record") == 1){
+		if($this->pl->config->get("pvp-record") == 1){
 		$this->data["content"][] = ["type" => "label", "text" => TextFormat::GOLD."Kills: ".TextFormat::WHITE."$kills"];
-		}
-		
-		if($this->pl->config->get("death-record") == 1){
 		$this->data["content"][] = ["type" => "label", "text" => TextFormat::GOLD."Deaths: ".TextFormat::WHITE."$deaths"];
 		}
 		
