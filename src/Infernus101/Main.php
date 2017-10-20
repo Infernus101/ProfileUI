@@ -16,7 +16,9 @@ use pocketmine\utils\Config;
 use pocketmine\utils\TextFormat;
 
 class Main extends PluginBase implements Listener {
-
+	
+	public $flag = false;
+	
 	public function onEnable(){
 		$this->getServer()->getLogger()->notice("[ProfielUI] Enabled! - By Infernus101");
 		$file = "config.yml";
@@ -25,13 +27,17 @@ class Main extends PluginBase implements Listener {
 		file_put_contents($this->getDataFolder() . $file, $this->getResource($file));
 		}
 		$this->config = new Config($this->getDataFolder() . "config.yml", Config::YAML);
+		if(($this->config->get("pvp-record") == 1) or ($this->config->get("kdr") == 1) or ($this->config->get("mining-record") == 1)){
+		$flag = true;
 		$this->players = [];
 		$this->players = (new Config($this->getDataFolder() . "/records.json", Config::JSON))->getAll();
 		$this->getServer()->getPluginManager()->registerEvents(new PlayerEvents($this), $this);
 		$this->base = ["mining" => 0, "kills" => 0, "deaths" => 0];
+		}
 	}
 	
 	public function onDisable(){
+		if($flag == true){
 		@unlink($this->getDataFolder() . "/records.json");
 		$d = new Config($this->getDataFolder() . "/records.json", Config::JSON);
 			foreach($this->players as $player => $stats){
@@ -39,6 +45,7 @@ class Main extends PluginBase implements Listener {
 			  $d->save();
 			  $d->reload();
 			}
+		}
 		$this->getServer()->getLogger()->notice("[ProfielUI] Disabled! - By Infernus101");
 	}
 
@@ -58,10 +65,10 @@ class Main extends PluginBase implements Listener {
 		  return true;
 	  }
 	  if(strtolower($cmd->getName()) == 'profile'){
-			  if(!isset($args[0])){
+				if(!isset($args[0])){
 				  $sender->sendMessage(TextFormat::RED."Usage: /profile <player>\n".TextFormat::GREEN."Profile UI by Infernus101! github.com/Infernus101/ProfileUI\n".TextFormat::AQUA."Server - FallenTech.tk 19132");
 				  return false;
-			  }
+				}
 				$noob = $this->getServer()->getOfflinePlayer($args[0]);
 				if(!is_numeric($noob->getFirstPlayed())){
 					$sender->sendMessage(TextFormat::RED."Error > Player not found");
