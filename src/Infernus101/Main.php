@@ -25,10 +25,31 @@ class Main extends PluginBase implements Listener {
 		file_put_contents($this->getDataFolder() . $file, $this->getResource($file));
 		}
 		$this->config = new Config($this->getDataFolder() . "config.yml", Config::YAML);
+		$this->players = [];
+		$this->players = (new Config($this->getDataFolder() . "/records.json", Config::JSON))->getAll();
+		$this->getServer()->getPluginManager()->registerEvents(new PlayerEvents($this), $this);
+		$this->base = ["mining" => 0, "kills" => 0, "deaths" => 0];
 	}
 	
 	public function onDisable(){
+		@unlink($this->getDataFolder() . "/records.json");
+		$d = new Config($this->getDataFolder() . "/records.json", Config::JSON);
+			foreach($this->players as $player => $stats){
+			  $d->set($player, $stats);
+			  $d->save();
+			  $d->reload();
+			}
 		$this->getServer()->getLogger()->notice("[ProfielUI] Disabled! - By Infernus101");
+	}
+
+	public function getStat($player){
+		return isset($this->players[strtolower($player->getName())]) ? $this->players[strtolower($player->getName())] : $this->base;
+	}
+	
+	public function addStat(Player $player, String $type){
+		$stat = $this->players[strtolower($player->getName())];
+		$stat[$type] = $stat[$type] + 1;
+		$this->players[strtolower($player->getName())] = $stat;
 	}
 	
 	public function onCommand(CommandSender $sender, Command $cmd, String $label, array $args): bool{
@@ -38,7 +59,7 @@ class Main extends PluginBase implements Listener {
 	  }
 	  if(strtolower($cmd->getName()) == 'profile'){
 			  if(!isset($args[0])){
-				  $sender->sendMessage(TextFormat::GOLD."Usage: /profile <player>");
+				  $sender->sendMessage(TextFormat::RED."Usage: /profile <player>\n".TextFormat::GREEN."Profile UI by Infernus101! github.com/Infernus101/ProfileUI\n".TextFormat::AQUA."Server - FallenTech.tk 19132");
 				  return false;
 			  }
 				$noob = $this->getServer()->getOfflinePlayer($args[0]);

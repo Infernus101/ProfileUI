@@ -62,6 +62,21 @@ class ProfileWindow extends Window {
 			$date2 = date("l, F j, Y", ($first = $this->args->getFirstPlayed() / 1000));
 			$time2 = date("h:ia", $first);
 		}
+		
+		if($this->pl->config->get("mining-record") == 1){
+			$stat = $this->pl->getStat($this->args);
+			$mined = $stat["mining"];
+		}
+		
+		if($this->pl->config->get("kill-record") == 1){
+			$stat = $this->pl->getStat($this->args);
+			$kills = $stat["kills"];
+		}
+		
+		if($this->pl->config->get("death-record") == 1){
+			$stat = $this->pl->getStat($this->args);
+			$deaths = $stat["deaths"];
+		}
 
 		$name2 = ucfirst($name);
 		$this->data = [
@@ -82,6 +97,18 @@ class ProfileWindow extends Window {
 
 		if($this->pl->config->get("faction") == 1){
 		$this->data["content"][] = ["type" => "label", "text" => TextFormat::GOLD."Faction: ".TextFormat::WHITE."$fac"];
+		}
+		
+		if($this->pl->config->get("mining-record") == 1){
+		$this->data["content"][] = ["type" => "label", "text" => TextFormat::GOLD."Blocks broken: ".TextFormat::WHITE."$mined"];
+		}
+		
+		if($this->pl->config->get("kill-record") == 1){
+		$this->data["content"][] = ["type" => "label", "text" => TextFormat::GOLD."Kills: ".TextFormat::WHITE."$kills"];
+		}
+		
+		if($this->pl->config->get("death-record") == 1){
+		$this->data["content"][] = ["type" => "label", "text" => TextFormat::GOLD."Deaths: ".TextFormat::WHITE."$deaths"];
 		}
 
 		if($this->pl->config->get("first-played") == 1){

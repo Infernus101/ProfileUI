@@ -1,13 +1,20 @@
 ---
 ### CONFIG - Infernus101###
 # show player's rank? 0 to disable, only pureperms support
-rank: 1
+rank: 0
 # show player's money? 0 to disable, only economy by onebone support
-money: 1
+money: 0
 # show player's faction? 0 to disable, only FactionsPro by tethered support
-faction: 1
+faction: 0
 # show player's first joined? 0 to disable
 first-played: 1
 # show player's last seen? 0 to disable
 last-seen: 1
+###### RECORDS ######
+# keep mining/blocks broken record of players
+mining-record: 1
+# keep kill record of players
+kill-record: 1
+# keep death record of players
+death-record: 1
 ...
