@@ -36,7 +36,7 @@ class PlayerEvents implements Listener {
 		}
 	}
 	
-	public function onDeath(PlayerDeathEvent $ev){
+	public function onDeath(PlayerDeathEvent $event){
 		if(($this->pl->config->get("pvp-record") == 1) or ($this->pl->config->get("kdr") == 1)){
 		$cause = $event->getEntity()->getLastDamageCause();
 			if($cause instanceof EntityDamageByEntityEvent) {
