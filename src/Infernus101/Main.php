@@ -28,7 +28,7 @@ class Main extends PluginBase implements Listener {
 		}
 		$this->config = new Config($this->getDataFolder() . "config.yml", Config::YAML);
 		if(($this->config->get("pvp-record") == 1) or ($this->config->get("kdr") == 1) or ($this->config->get("mining-record") == 1)){
-		$flag = true;
+		$this->flag = true;
 		$this->players = [];
 		$this->players = (new Config($this->getDataFolder() . "/records.json", Config::JSON))->getAll();
 		$this->getServer()->getPluginManager()->registerEvents(new PlayerEvents($this), $this);
@@ -37,7 +37,7 @@ class Main extends PluginBase implements Listener {
 	}
 	
 	public function onDisable(){
-		if($flag == true){
+		if($this->flag == true){
 		@unlink($this->getDataFolder() . "/records.json");
 		$d = new Config($this->getDataFolder() . "/records.json", Config::JSON);
 			foreach($this->players as $player => $stats){
