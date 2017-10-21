@@ -45,8 +45,8 @@ class PlayerEvents implements Listener {
 			if($cause instanceof EntityDamageByEntityEvent) {
 				$p = $event->getEntity();
 				$killer = $p->getLastDamageCause()->getDamager();
-				if(strtolower($p->getName()) != strtolower($killer->getName())){
-					if($killer instanceof Player){
+				if($killer instanceof Player){
+					if(strtolower($p->getName()) != strtolower($killer->getName())){
 						$this->pl->addStat($p, 'deaths');
 						$this->pl->addStat($killer, 'kills');
 					}
