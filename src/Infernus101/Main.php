@@ -57,7 +57,6 @@ class Main extends PluginBase implements Listener {
 		$stat = $this->players[strtolower($player->getName())];
 		$stat[$type] = $stat[$type] + 1;
 		$this->players[strtolower($player->getName())] = $stat;
-		return true;
 	}
 	
 	public function onCommand(CommandSender $sender, Command $cmd, String $label, array $args): bool{
