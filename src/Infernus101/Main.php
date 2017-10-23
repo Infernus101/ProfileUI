@@ -3,6 +3,7 @@
 namespace Infernus101;
 
 use Infernus101\window\Handler;
+use Infernus101\tasks\SaveTask;
 use pocketmine\Player;
 use pocketmine\OfflinePlayer;
 use pocketmine\Server;
@@ -34,9 +35,20 @@ class Main extends PluginBase implements Listener {
 		$this->getServer()->getPluginManager()->registerEvents(new PlayerEvents($this), $this);
 		$this->base = ["mining" => 0, "kills" => 0, "deaths" => 0];
 		}
+		if(is_numeric($interval = $this->config->get("auto-save-interval", 10))){ # Minutes
+			if($interval > 0){
+				$interval = $interval * 1200;
+				$this->getServer()->getScheduler()->scheduleDelayedRepeatingTask(new SaveTask($this), $interval, $interval);
+			}
+		}
 	}
 	
 	public function onDisable(){
+		$this->saveStat();
+		$this->getServer()->getLogger()->notice("[ProfielUI] Disabled! - By Infernus101");
+	}
+	
+	public function saveStat(){
 		if($this->flag == true){
 		@unlink($this->getDataFolder() . "/records.json");
 		$d = new Config($this->getDataFolder() . "/records.json", Config::JSON);
@@ -46,7 +58,6 @@ class Main extends PluginBase implements Listener {
 			  $d->reload();
 			}
 		}
-		$this->getServer()->getLogger()->notice("[ProfielUI] Disabled! - By Infernus101");
 	}
 
 	public function getStat($player){
