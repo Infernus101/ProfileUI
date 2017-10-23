@@ -17,4 +17,6 @@ mining-record: 1
 pvp-record: 1
 # show kill/death ratio
 kdr: 1
+# save data interval (in minutes)
+auto-save-interval: 10
 ...
