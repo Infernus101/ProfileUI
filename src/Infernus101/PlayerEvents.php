@@ -8,6 +8,7 @@ use pocketmine\utils\TextFormat;
 use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\event\player\PlayerDeathEvent;
+use pocketmine\event\entity\EntityDamageByEntityEvent;
 use pocketmine\Player;
 
 class PlayerEvents implements Listener {
@@ -38,7 +39,8 @@ class PlayerEvents implements Listener {
 	
 	public function onDeath(PlayerDeathEvent $event){
 		if(($this->pl->config->get("pvp-record") == 1) or ($this->pl->config->get("kdr") == 1)){
-				$p = $event->getEntity();
+			$p = $event->getEntity();
+			if($p->getLastDamageCause() instanceof EntityDamageByEntityEvent){
 				$killer = $p->getLastDamageCause()->getDamager();
 				if($killer instanceof Player){
 					if(strtolower($killer->getName()) != strtolower($p->getName())){
@@ -46,6 +48,7 @@ class PlayerEvents implements Listener {
 					$this->pl->addStat($killer, 'kills');
 					}
 				}
+			}
 		}
 	}
 }
