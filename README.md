@@ -3,6 +3,7 @@
 Get any player's profile on a Modal Form! MCPE v1.2! PMMP support only!
 
 [![Poggit-CI](https://poggit.pmmp.io/ci.shield/Infernus101/ProfileUI/ProfileUI)](https://poggit.pmmp.io/ci/Infernus101/ProfileUI/ProfileUI)
+[![](https://poggit.pmmp.io/shield.dl.total/ProfileUI)](https://poggit.pmmp.io/p/ProfileUI)
 
 [Get the latest ProfileUI artifacts (PHAR file) here](https://poggit.pmmp.io/ci/Infernus101/ProfileUI/ProfileUI)
 
