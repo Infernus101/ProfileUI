@@ -1,7 +1,8 @@
-# ProfileUI 
+# ProfileUI<img src="https://raw.githubusercontent.com/Infernus101/ProfileUI/0690f5e61a9f7af02c30342d4d6414a630de47fc/icon.png" height="64" width="64" align="left"></img>
 (No Plugin library or Virion required! Easy as pie!)
 Get any player's profile on a Modal Form! MCPE v1.2! PMMP support only!
 
+[![HitCount](http://hits.dwyl.io/Infernus101/ProfileUI.svg)](http://hits.dwyl.io/Infernus101/ProfileUI)
 [![Poggit-CI](https://poggit.pmmp.io/ci.shield/Infernus101/ProfileUI/ProfileUI)](https://poggit.pmmp.io/ci/Infernus101/ProfileUI/ProfileUI)
 [![](https://poggit.pmmp.io/shield.dl.total/ProfileUI)](https://poggit.pmmp.io/p/ProfileUI)
 
