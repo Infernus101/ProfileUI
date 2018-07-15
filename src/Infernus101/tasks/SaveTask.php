@@ -2,15 +2,14 @@
 
 namespace Infernus101\tasks;
 
-use pocketmine\scheduler\PluginTask;
+use pocketmine\scheduler\Task;
 use Infernus101\Main;
 
-class SaveTask extends PluginTask{
+class SaveTask extends Task{
 
 	public $pl;
 	
 	public function __construct(Main $pl){
-		parent::__construct($pl);
 		$this->pl = $pl;
 	}
 
