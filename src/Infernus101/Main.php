@@ -38,7 +38,7 @@ class Main extends PluginBase implements Listener {
 		if(is_numeric($interval = $this->config->get("auto-save-interval", 10))){ # Minutes
 			if($interval > 0){
 				$interval = $interval * 1200;
-				$this->getServer()->getScheduler()->scheduleDelayedRepeatingTask(new SaveTask($this), $interval, $interval);
+				$this->getScheduler()->scheduleDelayedRepeatingTask(new SaveTask($this), $interval, $interval);
 			}
 		}
 	}
