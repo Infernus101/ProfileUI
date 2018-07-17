@@ -1,6 +1,6 @@
 name: ProfileUI
 author: Infernus101
-api: [3.0.0, 4.0.0]
+api: [3.0.0]
 main: Infernus101\Main
 version: 4.2.0
 commands:
