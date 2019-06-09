@@ -54,9 +54,8 @@ class Main extends PluginBase implements Listener {
 		$d = new Config($this->getDataFolder() . "/records.json", Config::JSON);
 			foreach($this->players as $player => $stats){
 			  $d->set($player, $stats);
-			  $d->save();
-			  $d->reload();
 			}
+			$d->save();
 		}
 	}
 
