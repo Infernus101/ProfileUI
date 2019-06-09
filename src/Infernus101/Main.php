@@ -21,7 +21,6 @@ class Main extends PluginBase implements Listener {
 	public $flag = false;
 	
 	public function onEnable(){
-		$this->getServer()->getLogger()->notice("[ProfileUI] Enabled! - By Infernus101");
 		$file = "config.yml";
 		if(!file_exists($this->getDataFolder() . $file)){
 		@mkdir($this->getDataFolder());
@@ -45,7 +44,6 @@ class Main extends PluginBase implements Listener {
 	
 	public function onDisable(){
 		$this->saveStat();
-		$this->getServer()->getLogger()->notice("[ProfileUI] Disabled! - By Infernus101");
 	}
 	
 	public function saveStat(){
