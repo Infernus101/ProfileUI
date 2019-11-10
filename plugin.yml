@@ -5,4 +5,6 @@ main: Infernus101\Main
 version: 4.2.2
 commands:
   profile:
-    description: Player profile UI!
+    description: "Player profile UI"
+    permission: profile.cmd
+    default: true

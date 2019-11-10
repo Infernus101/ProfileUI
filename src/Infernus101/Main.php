@@ -74,7 +74,7 @@ class Main extends PluginBase implements Listener {
 	  }
 	  if(strtolower($cmd->getName()) == 'profile'){
 				if(!isset($args[0])){
-				  $sender->sendMessage(TextFormat::RED."Usage: /profile <player>\n".TextFormat::GREEN."Profile UI by Infernus101! github.com/Infernus101/ProfileUI\n".TextFormat::AQUA."Server - FallenTech.tk 19132");
+				  $sender->sendMessage(TextFormat::RED."Usage: /profile <player>\n".TextFormat::GREEN."");
 				  return false;
 				}
 				$noob = $this->getServer()->getOfflinePlayer($args[0]);
