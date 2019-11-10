@@ -33,3 +33,6 @@ Get any player's profile on a Modal Form! MCPE v1.2! PMMP support only!
 - Twitter - http://twitter.com/Infernus101
 - Email - infernusmcpe@gmail.com
 - Server - Fallentech.tk 19132 | Countertech.tk 19132
+
+# Permission Added by esh123unicorn
+## Discord bigbozzlmao#4035
